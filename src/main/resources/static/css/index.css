@@ -1,0 +1,442 @@
+/* ======= 전체 컨테이너 및 중앙 정렬 수정 ======= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box; /* padding과 border가 너비에 포함되도록 설정 */
+}
+
+/* ======= 상단 네비게이션 스타일 ======= */
+.index-navbar {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.index-logo {
+    display: flex;
+    align-items: center;
+}
+
+.index-logo-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #89CFF0;
+}
+
+.index-nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.index-login-btn {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.index-menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ======= 배경 이미지 섹션 스타일 ======= */
+.index-hero-section {
+    background: url('/images/rawkkim-YgpxoF4fx9I-unsplash.jpg') no-repeat center center/cover;
+    width: 100vw;
+    height: 600px;
+    position: relative;
+    color: white;
+    overflow: hidden;
+    margin-left: calc(50% - 50vw);
+}
+
+.index-hero-overlay {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.index-hero-overlay h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ======= 탭 메뉴 스타일 수정 ======= */
+.index-tab-menu {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0px 20px; /* 내부 패딩을 줘서 입력 필드 내부에 여백을 줌 */
+    margin-bottom: 10px;
+    box-sizing: border-box; /* 패딩이 포함된 너비 계산 */
+}
+
+.index-tab {
+    background: none; /* 배경색 제거 */
+    border: none; /* 기본 테두리 제거 */
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #555;
+    position: relative;
+}
+
+.index-tab.active {
+    color: #007bff; /* 활성화된 탭의 글자 색 */
+    font-weight: bold; /* 글자 굵기 */
+}
+
+.index-tab.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff; /* 밑줄 색상 */
+}
+
+.index-tab:hover {
+    color: #0056b3; /* 호버 시 글자 색 */
+}
+
+
+
+/* ======= 검색 바 및 입력 필드 스타일 ======= */
+.index-search-bar {
+    background-color: white;
+    padding: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.index-search-inputs {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 0 20px; /* 좌우 패딩 추가 */
+    align-items: center;
+    box-sizing: border-box; /* 패딩이 포함된 너비 계산 */
+}
+
+.index-search-text,
+.index-search-date,
+.index-search-people {
+    flex-grow: 1; /* 인풋 필드들이 균등하게 공간을 차지 */
+    padding: 10px 50px; /* 내부 패딩을 줘서 입력 필드 내부에 여백을 줌 */
+    border: 1px solid #f8f8f8;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    color: #888888;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.index-search-text:focus,
+.index-search-date:focus,
+.index-search-people:focus {
+    outline: none;
+}
+
+.index-search-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 40px;
+    box-sizing: border-box;
+    width: auto;
+}
+
+.index-search-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ======= 인풋 필드 아이콘 스타일 ======= */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    color: #888;
+    pointer-events: none;
+    font-size: 1.2em;
+}
+
+/* ======= 캘린더 스타일 ======= */
+.calendar-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: auto;
+    visibility: hidden;
+}
+
+.index-calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.month-year-label {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.prev-month,
+.next-month {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.calendar-months {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.calendar-month {
+    width: 350px;
+}
+
+.days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 5px 0;
+    color: #696969;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px;
+    text-align: center;
+    color: #808080;
+}
+
+.calendar-dates div {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.calendar-dates div:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.calendar-dates .selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.calendar-dates .highlighted-period {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: black;
+}
+
+.holiday {
+    color: #f44336 !important;
+}
+
+.calendar-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reset-button {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+/* ======= 반응형 디자인 (모바일) ======= */
+@media (max-width: 768px) {
+    /* 네비게이션 바 */
+    .index-navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .index-logo-text {
+        font-size: 24px; /* 로고 텍스트 크기 조정 */
+    }
+
+    .index-nav-links {
+        display: none; /* 모바일에서는 로그인/회원가입 숨기기 */
+    }
+
+    .index-menu-toggle {
+        font-size: 28px;
+        display: block; /* 메뉴 토글 버튼 활성화 */
+    }
+
+    /* 검색 바 */
+    .index-hero-section {
+        height: auto; /* 검색 바 영역이 늘어나도록 설정 */
+    }
+
+    .index-hero-overlay h1 {
+        font-size: 28px; /* 타이틀 크기 조정 */
+    }
+
+    .index-search-bar {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .index-search-inputs {
+        flex-direction: column; /* 검색 인풋들을 세로로 배치 */
+        gap: 10px; /* 각 요소 간의 간격 설정 */
+    }
+
+    .index-search-btn {
+        width: 100%; /* 검색 버튼을 전체 너비로 */
+    }
+
+    /* 이벤트 섹션 */
+    .index-event-section {
+        padding: 10px; /* 패딩 조정 */
+    }
+
+    .index-event-items {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll; /* 가로 스크롤 가능하게 설정 */
+        gap: 10px; /* 각 아이템 간의 간격 설정 */
+    }
+
+    .index-event-item {
+        min-width: 150px; /* 최소 너비 설정 */
+        background-color: #f0f0f0; /* 임시 배경색 */
+        height: 100px; /* 임시 높이 설정 */
+    }
+
+    /* 추천 여행지 섹션 */
+    .index-popular-destinations {
+        padding: 10px; /* 패딩 조정 */
+    }
+
+    .index-destination-items {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll; /* 가로 스크롤 가능하게 설정 */
+        gap: 10px;
+    }
+
+    .index-destination-item {
+        min-width: 120px; /* 최소 너비 설정 */
+        background-color: #f0f0f0; /* 임시 배경색 */
+        height: 80px; /* 임시 높이 설정 */
+    }
+}
+
+
+/* ======= 인원 설정 드롭다운 스타일 ======= */
+.dropdown-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin-top: 10px;
+}
+
+.person-dropdown {
+    display: flex;
+    align-items: center;
+    color: #888888;
+}
+
+.person-guide {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: start;
+}
+
+.person-control {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.person-control button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.person-control button:hover {
+    background-color: #0056b3;
+}
+
+.people-count {
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+/* ======= 공휴일 강조 스타일 ======= */
+.highlight-holiday {
+    color: #f44336 !important;
+}

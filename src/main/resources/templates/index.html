@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가보자 | 국내 숙박 예약</title>
+
+    <!-- Font Awesome CSS 추가 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Templates CSS  -->
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/png">
+</head>
+<body>
+<div class="container">
+    <!-- 상단 네비게이션 -->
+    <header class="index-header">
+        <div class="index-navbar">
+            <div class="index-logo">
+                <span class="index-logo-text">가보자</span>
+            </div>
+            <div class="index-nav-links">
+                <a href="#" class="index-login-btn">로그인/회원가입</a>
+                <button class="index-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 배경 이미지와 검색 바 -->
+    <div class="index-hero-section">
+        <div class="index-hero-overlay">
+            <h1 class="index-title">국내 여행 숙박! 가보자!</h1>
+
+            <!-- form 태그 추가 -->
+            <form action="/search-results" method="GET" class="index-search-bar">
+                <div class="index-tab-menu">
+                    <button type="button" class="index-tab active">국내 숙소</button>
+                </div>
+
+                <div class="index-search-inputs">
+                    <!-- 여행지/숙소 검색 필드 -->
+                    <div class="input-wrapper">
+                        <i class="fas fa-search input-icon"></i>
+                        <input type="text" name="location" placeholder="여행지나 숙소를 검색해보세요." class="index-search-text">
+                    </div>
+
+                    <!-- 날짜 선택 필드 -->
+                    <div class="input-wrapper">
+                        <i class="fas fa-calendar-alt input-icon"></i>
+                        <input type="text" name="dates" placeholder="날짜 선택" class="index-search-date">
+                    </div>
+
+                    <!-- 인원 선택 필드 -->
+                    <div class="input-wrapper">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" name="people" placeholder="인원 2명" class="index-search-people" readonly>
+                    </div>
+
+                    <!-- 인원 설정 드롭다운 -->
+                    <div class="dropdown-container" style="display: none;">
+                        <div class="person-dropdown">
+                            <div class="person-guide">
+                                <span>인원</span>
+                                <br>
+                                <span>유아 및 아동도 인원수에 포함해주세요.</span>
+                            </div>
+                            <div class="person-control">
+                                <button type="button" class="person-decrease">-</button>
+                                <span class="people-count">2</span>
+                                <button type="button" class="person-increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 검색 버튼 -->
+                    <button type="submit" class="index-search-btn">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 캘린더 섹션 -->
+    <div class="calendar-container">
+        <div class="index-calendar">
+            <div class="calendar-header">
+                <span class="prev-month"><</span>
+                <div class="calendar-months">
+                    <!-- 첫 번째 달 -->
+                    <div class="calendar-month">
+                        <div class="month-year-label"></div>
+                        <div class="days-of-week">
+                            <div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>
+                        </div>
+                        <div class="calendar-dates"></div>
+                    </div>
+
+                    <!-- 두 번째 달 -->
+                    <div class="calendar-month">
+                        <div class="month-year-label"></div>
+                        <div class="days-of-week">
+                            <div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>
+                        </div>
+                        <div class="calendar-dates"></div>
+                    </div>
+                </div>
+                <span class="next-month">></span>
+            </div>
+            <div class="calendar-hr">
+                <hr>
+            </div>
+            <div class="calendar-footer">
+                <div class="reset-button">일정 초기화</div>
+                <div class="selected-dates">날짜를 선택하세요</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 이벤트 섹션 -->
+    <div class="index-event-section">
+        <h2 class="index-event-title">이벤트</h2>
+        <div class="index-event-items">
+            <div class="index-event-item">
+                <p>최대 8% 해외여행 쿠폰팩</p>
+            </div>
+            <div class="index-event-item">
+                <p>베스트 호텔 최대 81% 특가</p>
+            </div>
+            <!-- 추가 이벤트 항목 -->
+        </div>
+    </div>
+
+    <!-- 국내 인기 여행지 섹션 -->
+    <div class="index-popular-destinations">
+        <h2 class="index-destination-title">국내 인기 여행지</h2>
+        <div class="index-destination-items">
+            <!-- 각 인기 여행지 항목 -->
+        </div>
+    </div>
+
+    <!-- 더보기 버튼 -->
+    <div class="index-more-button">
+        <a href="#">더보기</a>
+    </div>
+</div>
+
+<script th:src="@{/js/index-date.js}"></script>
+<script th:src="@{/js/index-person.js}"></script>
+</body>
+</html>
